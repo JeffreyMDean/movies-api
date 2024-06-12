@@ -7,3 +7,8 @@
 #   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
+movie1 = Movie.new(title: "Land of Bad", genre: "Action Thriller", year: 2024)
+movie1.save
+
+movie2 = Movie.new(title: "Bourne Legacy", genre: "Action Thriller", year: 2012)
+movie2.save
