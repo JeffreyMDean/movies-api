@@ -8,4 +8,11 @@ class MoviesControllerTest < ActionDispatch::IntegrationTest
     data = JSON.parse(response.body)
     assert_equal Movie.count, data.length
   end
+
+  test "create" do
+    assert_difference "Movie.count", 1 do
+      post "/movies.json", params: { title: "Willow", genre: "Adventure", year: 1988 }
+      assert_response 200
+    end
+  end
 end
