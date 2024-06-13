@@ -15,4 +15,12 @@ class MoviesControllerTest < ActionDispatch::IntegrationTest
       assert_response 200
     end
   end
+
+  test "show" do
+    get "/movies/#{Movie.first.id}.json"
+    assert_response 200
+
+    data = JSON.parse(response.body)
+    assert_equal ["id", "title", "genre", "year", "created_at", "updated_at"], data.keys
+  end
 end
